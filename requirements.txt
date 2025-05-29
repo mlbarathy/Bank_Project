@@ -1,0 +1,8 @@
+flask
+psycopg2-binary==2.9.9
+pyspark==3.5.0
+kafka-python==2.0.2
+python-dotenv==1.0.0
+confluent_kafka
+marshmallow
+app
