@@ -106,7 +106,7 @@ def produce_messages():
             callback=delivery_report
         )
         producer.poll(0)
-        time.sleep(10)
+        time.sleep(5)
 
 if __name__ == "__main__":
     print("🔁 Producing Kafka messages every 5 seconds...")

@@ -12,7 +12,9 @@ POSTGRES_TABLE = "bank_json"
 POSTGRES_HOST = "localhost"
 POSTGRES_PORT = "5433"
 POSTGRES_URL = f"jdbc:postgresql://{POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DB}"
-
+POSTGRES_CON_URL = f"postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DB}"
+POSTGRESS_TABLE_PKID = "MsgId"
+POSTGRES_HISTORY_TABLE = "bank_json_history"
 CHECKPOINT_LOC = f"/Users/lakshimi.mariappan/Desktop/Personal/Project/Bank_V1_28May/checkpoints/flaskstream_{uuid.uuid4()}"
 
 POSTGRESS_CON = {

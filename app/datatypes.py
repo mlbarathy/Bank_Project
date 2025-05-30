@@ -1,7 +1,5 @@
 from pyspark.sql.types import *
 
-
-
 def spark_to_postgres_type(spark_type):
 
     mapping = {
