@@ -3,25 +3,36 @@ from dotenv import load_dotenv
 load_dotenv()
 import uuid
 
+import os
+import uuid
+from dotenv import load_dotenv
 
-TARGET_DB= "POSTGRES"
+load_dotenv()
+
+# Set target DB: "POSTGRES", "MSSQL", or "MYSQL"
+
+TARGET_DB = "POSTGRES"
+
+# Kafka settings
 KAFKA_BOOTSTRAP_SERVERS = "localhost:9092"
 KAFKA_TOPIC = "json_events"
+CHECKPOINT_LOC = f"/Users/lakshimi.mariappan/Desktop/Personal/Project/Bank_V1_28May/checkpoints/flaskstream_{uuid.uuid4()}"
 
-### POSTGRESS DETAILS
-
-POSTGRES_USER =  "postgress"
+# ============================ #
+#       POSTGRES CONFIG       #
+# ============================ #
+POSTGRES_USER = "postgress"
 POSTGRES_PASSWORD = "postgress"
 POSTGRES_DB = "mydatabase"
-POSTGRES_TABLE = "bank_json"
 POSTGRES_HOST = "localhost"
 POSTGRES_PORT = "5433"
+POSTGRES_TABLE = "bank_json"
+POSTGRES_HISTORY_TABLE = "bank_json_history"
+POSTGRESS_TABLE_PKID = "MsgId"
+POSTGRES_DRIVER = "org.postgresql.Driver"
+
 POSTGRES_URL = f"jdbc:postgresql://{POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DB}"
 POSTGRES_CON_URL = f"postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DB}"
-POSTGRESS_TABLE_PKID = "MsgId"
-POSTGRES_HISTORY_TABLE = "bank_json_history"
-CHECKPOINT_LOC = f"/Users/lakshimi.mariappan/Desktop/Personal/Project/Bank_V1_28May/checkpoints/flaskstream_{uuid.uuid4()}"
-POSTGRES_DRIVER="org.postgresql.Driver"
 
 POSTGRESS_CON = {
     "dbname": POSTGRES_DB,
@@ -36,16 +47,37 @@ POSTGRESS_SPARK_CONF = {
     "dbtable": POSTGRES_TABLE,
     "user": POSTGRES_USER,
     "password": POSTGRES_PASSWORD,
-    "driver": "org.postgresql.Driver"
+    "driver": POSTGRES_DRIVER
 }
 
-### MSSQL DETAILS
+# ============================ #
+#         MYSQL CONFIG        #
+# ============================ #
+MYSQL_USER = "mysql"
+MYSQL_PASSWORD = "mysql*0123"
+MYSQL_DATABASE = "mydb"
+MYSQL_HOST = "localhost"
+MYSQL_PORT = "3306"
+MYSQL_TABLE = "bank_json"
+MYSQL_HISTORY_TABLE = "bank_json_history"
+MYSQL_TABLE_PKID = "MsgId"
 
-MSSQL_URL="jdbc:sqlserver://localhost:1433;databaseName=your_database"
-MSSQL_USER="sa"
-MSSQL_PASSWORD="mssql*0123"
-MSSQL_DRIVER="com.microsoft.sqlserver.jdbc.SQLServerDriver"
-MSSQL_TABLE="bank_json"
-MSSQL_HISTORY_TABLE="bank_json_history"
-MSSQL_TABLE_PKID="MsgId"
+MYSQL_URL = f"jdbc:mysql://{MYSQL_HOST}:{MYSQL_PORT}/{MYSQL_DATABASE}"
+MYSQL_CON_URL = f"mysql+mysqlconnector://{MYSQL_USER}:{MYSQL_PASSWORD}@{MYSQL_HOST}:{MYSQL_PORT}/{MYSQL_DATABASE}"
+MYSQL_DRIVER = "com.mysql.cj.jdbc.Driver"
 
+MYSQL_CON = {
+    "host": MYSQL_HOST,
+    "port": MYSQL_PORT,
+    "user": MYSQL_USER,
+    "password": MYSQL_PASSWORD,
+    "database": MYSQL_DATABASE,
+}
+
+MYSQL_SPARK_CONF = {
+    "url": MYSQL_URL,
+    "dbtable": MYSQL_TABLE,
+    "user": MYSQL_USER,
+    "password": MYSQL_PASSWORD,
+    "driver": MYSQL_DRIVER
+}
