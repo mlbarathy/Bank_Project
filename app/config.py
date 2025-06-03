@@ -3,8 +3,13 @@ from dotenv import load_dotenv
 load_dotenv()
 import uuid
 
+
+TARGET_DB= "POSTGRES"
 KAFKA_BOOTSTRAP_SERVERS = "localhost:9092"
 KAFKA_TOPIC = "json_events"
+
+### POSTGRESS DETAILS
+
 POSTGRES_USER =  "postgress"
 POSTGRES_PASSWORD = "postgress"
 POSTGRES_DB = "mydatabase"
@@ -16,6 +21,7 @@ POSTGRES_CON_URL = f"postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_
 POSTGRESS_TABLE_PKID = "MsgId"
 POSTGRES_HISTORY_TABLE = "bank_json_history"
 CHECKPOINT_LOC = f"/Users/lakshimi.mariappan/Desktop/Personal/Project/Bank_V1_28May/checkpoints/flaskstream_{uuid.uuid4()}"
+POSTGRES_DRIVER="org.postgresql.Driver"
 
 POSTGRESS_CON = {
     "dbname": POSTGRES_DB,
@@ -32,3 +38,14 @@ POSTGRESS_SPARK_CONF = {
     "password": POSTGRES_PASSWORD,
     "driver": "org.postgresql.Driver"
 }
+
+### MSSQL DETAILS
+
+MSSQL_URL="jdbc:sqlserver://localhost:1433;databaseName=your_database"
+MSSQL_USER="sa"
+MSSQL_PASSWORD="mssql*0123"
+MSSQL_DRIVER="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+MSSQL_TABLE="bank_json"
+MSSQL_HISTORY_TABLE="bank_json_history"
+MSSQL_TABLE_PKID="MsgId"
+

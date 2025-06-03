@@ -64,4 +64,3 @@ def get_current_version(spark, pk_value):
     except:
         return 0
 
-load_json_query()
