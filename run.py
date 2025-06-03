@@ -1,7 +1,7 @@
 from flask import Flask
 import threading
 from app.spark_job import start_spark_stream
-from app.routes import bp as routes_bp
+from app.routes import db_handler as routes_bp
 
 app = Flask(__name__)
 app.register_blueprint(routes_bp)
