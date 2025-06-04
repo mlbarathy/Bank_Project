@@ -2,10 +2,10 @@
 from flask import Blueprint, request, jsonify
 from app.db_route_handler import get_db_handler
 
-bp = Blueprint("api", __name__)
+routes_bp = Blueprint('routes', __name__)
 db_handler = get_db_handler()
 
-@bp.route('/bank1-json-insert', methods=['POST'])
+@routes_bp.route('/bank1-json-insert', methods=['POST'])
 def bank_json_insert():
     try:
         payload = request.get_json()

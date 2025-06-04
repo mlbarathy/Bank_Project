@@ -11,7 +11,7 @@ load_dotenv()
 
 # Set target DB: "POSTGRES", "MSSQL", or "MYSQL"
 
-TARGET_DB = "POSTGRES"
+TARGET_DB = "MYSQL"
 
 # Kafka settings
 KAFKA_BOOTSTRAP_SERVERS = "localhost:9092"
@@ -57,7 +57,7 @@ MYSQL_USER = "mysql"
 MYSQL_PASSWORD = "mysql*0123"
 MYSQL_DATABASE = "mydb"
 MYSQL_HOST = "localhost"
-MYSQL_PORT = "3306"
+MYSQL_PORT = 3306
 MYSQL_TABLE = "bank_json"
 MYSQL_HISTORY_TABLE = "bank_json_history"
 MYSQL_TABLE_PKID = "MsgId"
